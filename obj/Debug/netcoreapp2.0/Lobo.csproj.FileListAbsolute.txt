@@ -18,3 +18,16 @@ C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.0\Lobo.AssemblyInfoIn
 C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.0\Lobo.AssemblyInfo.cs
 C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.0\Lobo.dll
 C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.0\Lobo.pdb
+C:\Users\artur\Source\Repos\LoBot\obj\Debug\netcoreapp2.0\Lobo.csprojAssemblyReference.cache
+C:\Users\artur\Source\Repos\LoBot\obj\Debug\netcoreapp2.0\Lobo.csproj.CoreCompileInputs.cache
+C:\Users\artur\Source\Repos\LoBot\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\artur\Source\Repos\LoBot\obj\Debug\netcoreapp2.0\Lobo.AssemblyInfoInputs.cache
+C:\Users\artur\Source\Repos\LoBot\obj\Debug\netcoreapp2.0\Lobo.AssemblyInfo.cs
+C:\Users\artur\Source\Repos\LoBot\obj\Debug\netcoreapp2.0\Lobo.dll
+C:\Users\artur\Source\Repos\LoBot\obj\Debug\netcoreapp2.0\Lobo.pdb
+C:\Users\artur\Source\Repos\LoBot\bin\Debug\netcoreapp2.0\BotConfiguration.bot
+C:\Users\artur\Source\Repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.deps.json
+C:\Users\artur\Source\Repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.runtimeconfig.json
+C:\Users\artur\Source\Repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.runtimeconfig.dev.json
+C:\Users\artur\Source\Repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.dll
+C:\Users\artur\Source\Repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.pdb

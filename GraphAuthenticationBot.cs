@@ -34,9 +34,7 @@ namespace Lobo
 
         // Instructions for the user with information about commands that this bot may handle.
         private const string WelcomeText =
-            @"You can type 'send <recipient_email>' to send an email, 'recent' to view recent unread mail
-            'me' to see information about yourself, or 'help' to view the commands
-            again. Any other text will display your token.";
+            @"Welcome xxxxxxx";
 
         private readonly GraphAuthenticationBotAccessors _stateAccessors;
         private readonly DialogSet _dialogs;
@@ -113,8 +111,10 @@ namespace Lobo
                 if (member.Id != turnContext.Activity.Recipient.Id)
                 {
                     var reply = turnContext.Activity.CreateReply();
+                    string[] Sala = { "one", "two", "three" };  //lo puse yo
                     reply.Text = WelcomeText;
-                    reply.Attachments = new List<Attachment> { CreateHeroCard(member.Id).ToAttachment() };
+                    reply.Attachments = new List<Attachment> { CreateHeroCard("BOG", Sala).ToAttachment() };
+                    //reply.Attachments = new List<Attachment> { CreateHeroCard(member.Id).ToAttachment() };
                     await turnContext.SendActivityAsync(reply, cancellationToken);
                 }
             }
@@ -125,18 +125,48 @@ namespace Lobo
         /// </summary>
         /// <param name="newUserName"> The name of the user.</param>
         /// <returns>A <see cref="HeroCard"/> the user can interact with.</returns>
-        private static HeroCard CreateHeroCard(string newUserName)
+        private static HeroCard CreateHeroCard(string KG, string[] Rooms)
         {
-            var heroCard = new HeroCard($"Welcome {newUserName}", "OAuthBot")
+            
+            int AmountOfItems = Rooms.Length;
+            List<CardAction> cardButtons = new List<CardAction>();
+            for (int i = 0; i < AmountOfItems; i++)
+            {
+                CardAction addButton = new CardAction()
+                {
+
+                    Value = i,
+                    Type = "ImBack",
+                    Title = Rooms[i],
+                    
+                };
+                cardButtons.Add(addButton);
+            }
+            var heroCardMeetingRooms = new HeroCard($"For KG {KG}, I have these Rooms listed", "Choose which one you want to use")
             {
                 Images = new List<CardImage>
                 {
                     new CardImage(
                         "https://botframeworksamples.blob.core.windows.net/samples/aadlogo.png",
-                        "AAD Logo",
+                        "TEST",
                         new CardAction(
                             ActionTypes.OpenUrl,
                             value: "https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview")),
+                },
+                Buttons = cardButtons
+            };
+            return heroCardMeetingRooms;
+        }
+        private static HeroCard WelcomeCard(string UserName)
+        {
+            var heroCard = new HeroCard($"Welcome {UserName}")
+            {
+                Images = new List<CardImage>
+                {
+                    new CardImage(
+                        "https://i0.wp.com/static1.wikia.nocookie.net/__cb20121001100335/adventuretimewithfinnandjake/images/5/56/Get_A_Room.png",
+                        "Get A Room"
+                       ),
                 },
                 Buttons = new List<CardAction>
                 {
