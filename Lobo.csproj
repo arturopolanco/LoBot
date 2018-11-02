@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <CodeAnalysisRuleSet>BotBuilder.ruleset</CodeAnalysisRuleSet>
+    <UserSecretsId>76d1bc8c-2194-453e-b435-c715908fd68e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs" Version="4.0.8" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.0.8" />
+    <PackageReference Include="Microsoft.Bot.Configuration" Version="4.0.8" />
+    <PackageReference Include="Microsoft.Graph" Version="1.11.0" />
+  </ItemGroup>
+
+ <ItemGroup>
+    <None Update="*.bot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+</Project>

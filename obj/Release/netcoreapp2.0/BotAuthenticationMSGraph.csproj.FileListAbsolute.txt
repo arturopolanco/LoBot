@@ -1,0 +1,13 @@
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\bin\Release\netcoreapp2.0\BotConfiguration.bot
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\bin\Release\netcoreapp2.0\BotAuthenticationMSGraph.deps.json
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\bin\Release\netcoreapp2.0\BotAuthenticationMSGraph.runtimeconfig.json
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\bin\Release\netcoreapp2.0\BotAuthenticationMSGraph.runtimeconfig.dev.json
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\bin\Release\netcoreapp2.0\BotAuthenticationMSGraph.dll
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\bin\Release\netcoreapp2.0\BotAuthenticationMSGraph.pdb
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\obj\Release\netcoreapp2.0\BotAuthenticationMSGraph.csprojAssemblyReference.cache
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\obj\Release\netcoreapp2.0\BotAuthenticationMSGraph.csproj.CoreCompileInputs.cache
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\obj\Release\netcoreapp2.0\BotAuthenticationMSGraph.AssemblyInfoInputs.cache
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\obj\Release\netcoreapp2.0\BotAuthenticationMSGraph.AssemblyInfo.cs
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\obj\Release\netcoreapp2.0\BotAuthenticationMSGraph.dll
+C:\Users\polancar\source\repos\BotBuilder-Samples\samples\csharp_dotnetcore\24.bot-authentication-msgraph\obj\Release\netcoreapp2.0\BotAuthenticationMSGraph.pdb

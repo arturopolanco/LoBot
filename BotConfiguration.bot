@@ -1,0 +1,25 @@
+{
+    "name": "bot-authentication-msgraph",
+    "description": "",
+  "services": [
+    {
+      "type": "endpoint",
+      "appId": "095888ee-692a-4e56-ad4c-4649d25ae15a",
+      "appPassword": "fcssEBWCG70~]vygNG250+^",
+      "endpoint": "http://localhost:3978/api/messages",
+      "id": "1",
+      "name": "development"
+    },
+    {
+      "type": "endpoint",
+      "appId": "095888ee-692a-4e56-ad4c-4649d25ae15a",
+      "appPassword": "fcssEBWCG70~]vygNG250+^",
+      "endpoint": "https://solucionlobo.azurewebsites.net/api/messages",
+      "id": "1",
+      "name": "production"
+    }
+
+  ],
+    "padlock": "",
+    "version": "2.0"
+}
