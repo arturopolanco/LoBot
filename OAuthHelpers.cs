@@ -59,6 +59,7 @@ namespace Lobo
             // Pull in the data from the Microsoft Graph.
             var client = new SimpleGraphClient(tokenResponse.Token);
             var me = await client.GetMeAsync();
+            var RoomList = await client.GetList();
             //var manager = await client.GetManagerAsync(); //by art
             // var photoResponse = await client.GetPhotoAsync(); //by art
 
