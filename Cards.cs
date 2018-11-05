@@ -8,17 +8,20 @@ namespace Lobo
 {
     public class Cards
     {       
-        private static HeroCard CreateHeroCard(string newUserName, string KG, string[] Rooms)
+      public static  HeroCard CreateHeroCard(string KG, string[] Rooms)
         {
+
             int AmountOfItems = Rooms.Length;
             List<CardAction> cardButtons = new List<CardAction>();
             for (int i = 0; i < AmountOfItems; i++)
             {
                 CardAction addButton = new CardAction()
                 {
+
                     Value = i,
-                    Type = "openUrl",
+                    Type = "ImBack",
                     Title = Rooms[i],
+
                 };
                 cardButtons.Add(addButton);
             }
