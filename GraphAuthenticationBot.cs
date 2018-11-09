@@ -10,6 +10,7 @@ using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
 
+
 namespace Lobo
 {
     /// <summary>
@@ -34,7 +35,7 @@ namespace Lobo
 
         // Instructions for the user with information about commands that this bot may handle.
         private const string WelcomeText =
-            @"Welcome xxxxxxx";
+            @"Hi, Im able to look for a room and book it on your name";
 
         private readonly GraphAuthenticationBotAccessors _stateAccessors;
         private readonly DialogSet _dialogs;
@@ -113,7 +114,8 @@ namespace Lobo
                     var reply = turnContext.Activity.CreateReply();
                     string[] Sala = { "one", "two", "three" };  //lo puse yo
                     reply.Text = WelcomeText;
-                    reply.Attachments = new List<Attachment> { CreateHeroCard("BOG", Sala).ToAttachment() };
+                    reply.Attachments = new List<Attachment> { WelcomeCard(member.Name).ToAttachment() }; // change with name later
+                    //reply.Attachments = new List<Attachment> { CreateHeroCard("BOG", Sala).ToAttachment() };
                     //reply.Attachments = new List<Attachment> { CreateHeroCard(member.Id).ToAttachment() };
                     await turnContext.SendActivityAsync(reply, cancellationToken);
                 }
@@ -125,38 +127,7 @@ namespace Lobo
         /// </summary>
         /// <param name="newUserName"> The name of the user.</param>
         /// <returns>A <see cref="HeroCard"/> the user can interact with.</returns>
-        private static HeroCard CreateHeroCard(string KG, string[] Rooms)
-        {
-            
-            int AmountOfItems = Rooms.Length;
-            List<CardAction> cardButtons = new List<CardAction>();
-            for (int i = 0; i < AmountOfItems; i++)
-            {
-                CardAction addButton = new CardAction()
-                {
 
-                    Value = i,
-                    Type = "ImBack",
-                    Title = Rooms[i],
-                    
-                };
-                cardButtons.Add(addButton);
-            }
-            var heroCardMeetingRooms = new HeroCard($"For KG {KG}, I have these Rooms listed", "Choose which one you want to use")
-            {
-                Images = new List<CardImage>
-                {
-                    new CardImage(
-                        "https://botframeworksamples.blob.core.windows.net/samples/aadlogo.png",
-                        "TEST",
-                        new CardAction(
-                            ActionTypes.OpenUrl,
-                            value: "https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview")),
-                },
-                Buttons = cardButtons
-            };
-            return heroCardMeetingRooms;
-        }
         private static HeroCard WelcomeCard(string UserName)
         {
             var heroCard = new HeroCard($"Welcome {UserName}")
@@ -170,11 +141,8 @@ namespace Lobo
                 },
                 Buttons = new List<CardAction>
                 {
-                    new CardAction(ActionTypes.ImBack, "Me", text: "Me", displayText: "Me", value: "Me"),
-                    new CardAction(ActionTypes.ImBack, "Recent", text: "Recent", displayText: "Recent", value: "Recent"),
-                    new CardAction(ActionTypes.ImBack, "View Token", text: "View Token", displayText: "View Token", value: "View Token"),
-                    new CardAction(ActionTypes.ImBack, "Help", text: "Help", displayText: "Help", value: "Help"),
-                    new CardAction(ActionTypes.ImBack, "Signout", text: "Signout", displayText: "Signout", value: "Signout"),
+                    new CardAction(ActionTypes.ImBack, "Not Me", text: "Not Me", displayText: "Not Me", value: "Not Me"),
+                    new CardAction(ActionTypes.ImBack, "Continue", text: "Continue", displayText: "Continue", value: "Continue"),
                 },
             };
             return heroCard;
@@ -196,6 +164,7 @@ namespace Lobo
                 case "logout":
                 case "signoff":
                 case "logoff":
+                case "not me":
                     // The bot adapter encapsulates the authentication processes and sends
                     // activities to from the Bot Connector Service.
                     var botAdapter = (BotFrameworkAdapter)turnContext.Adapter;
@@ -256,9 +225,13 @@ namespace Lobo
                     {
                         await OAuthHelpers.ListRecentMailAsync(step.Context, tokenResponse);
                     }
-                    else
+                    else if (command.StartsWith("token"))
                     {
                         await step.Context.SendActivityAsync($"Your token is: {tokenResponse.Token}", cancellationToken: cancellationToken);
+                    }
+                    else if (command.StartsWith("continue"))
+                    {
+                        await OAuthHelpers.ContinueAsync(step.Context, tokenResponse);
                     }
 
                     await _stateAccessors.CommandState.DeleteAsync(step.Context, cancellationToken);
