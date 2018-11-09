@@ -86,7 +86,8 @@ namespace Lobo
         public async Task<User> GetMeAsync()
         {
             var graphClient = GetAuthenticatedClient();
-            var me = await graphClient.Me.Request().GetAsync();
+            var me = await graphClient.Me.////    Request().GetHttpRequestMessage().RequestUri;
+            var http = graphClient.Me.Request().GetHttpRequestMessage().RequestUri;
             return me;
         }
         public async Task<MeetingTimeSuggestionsResult> FindRoomAsync(DateTime from, DateTime to, string meetingDuration, string meetingRoomDisplayName, string meetingRoomEmailAddress)

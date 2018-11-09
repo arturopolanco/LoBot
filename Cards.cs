@@ -8,7 +8,7 @@ namespace Lobo
 {
     public class Cards
     {       
-      public static  HeroCard CreateHeroCard(string KG, string[] Rooms)
+      public static HeroCard CreateHeroCard(string KG, string[] Rooms)
         {
 
             int AmountOfItems = Rooms.Length;
@@ -18,7 +18,7 @@ namespace Lobo
                 CardAction addButton = new CardAction()
                 {
 
-                    Value = i,
+                    Value = i+1,
                     Type = "ImBack",
                     Title = Rooms[i],
 
@@ -39,6 +39,25 @@ namespace Lobo
                 Buttons = cardButtons
             };
             return heroCardMeetingRooms;
+        }
+      public static HeroCard WelcomeCard(string UserName)
+        {
+            var heroCard = new HeroCard($"Welcome {UserName}")
+            {
+                Images = new List<CardImage>
+                {
+                    new CardImage(
+                        "https://i0.wp.com/static1.wikia.nocookie.net/__cb20121001100335/adventuretimewithfinnandjake/images/5/56/Get_A_Room.png",
+                        "Get A Room"
+                       ),
+                },
+                Buttons = new List<CardAction>
+                {
+                    new CardAction(ActionTypes.ImBack, "Not Me", text: "Not Me", displayText: "Not Me", value: "Not Me"),
+                    new CardAction(ActionTypes.ImBack, "Continue", text: "Continue", displayText: "Continue", value: "Continue"),
+                },
+            };
+            return heroCard;
         }
     }
 }
