@@ -31,3 +31,9 @@ C:\Users\artur\Source\Repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.runtimeconfig.jso
 C:\Users\artur\Source\Repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.runtimeconfig.dev.json
 C:\Users\artur\Source\Repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.dll
 C:\Users\artur\Source\Repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.pdb
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.0\BotConfiguration.bot
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.deps.json
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.runtimeconfig.json
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.runtimeconfig.dev.json
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.dll
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.0\Lobo.pdb
