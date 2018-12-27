@@ -107,7 +107,7 @@ namespace Lobo
             //    photoText = "Consider adding an image to your Outlook profile.";//by art
             //}//by art
 
-            reply.Text = $"You are {me} and I don't give a shhh";
+            reply.Text = $"You are {me} and youre in {me.CompanyName}";
             await turnContext.SendActivityAsync(reply);
         }
         public static async Task ContinueAsync(ITurnContext turnContext, TokenResponse tokenResponse)
@@ -124,15 +124,18 @@ namespace Lobo
 
             // Pull in the data from the Microsoft Graph.
             var client = new SimpleGraphClient(tokenResponse.Token);
+
             var me = await client.GetMeAsync();
-            var KG = me.CompanyName;
+            var RoomList = await client.GetRoomList();
+            var KG = me.CompanyName;            
             //var Sala = await client.FindRoomAsync();
             string[] Sala = { "Sala one", "Sala two", "Sala three" };  //lo puse yo
             var reply = turnContext.Activity.CreateReply();           
-            reply.Text = $"You are in {me.DisplayName} .n {me.Mail}  {me.CompanyName} and {me.Manager}";
+            reply.Text = $"You are in {me} .n {me.Mail}  {me.CompanyName} and {me.Manager}";
             reply.Attachments = new List<Attachment> { Cards.CreateHeroCard(KG, Sala).ToAttachment() };
             await turnContext.SendActivityAsync(reply);
         }
+
         public static async Task ListMeetingTimesAsync(ITurnContext turnContext, TokenResponse tokenResponse)
         {
             if (turnContext == null)
