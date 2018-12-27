@@ -34,8 +34,9 @@ namespace Lobo
         private const string ConnectionSettingName = "LoboOAuth";
 
         // Instructions for the user with information about commands that this bot may handle.
+        private const string WelcomeText =
+            @"Hi, Im able to look for a room and book it on your name";
 
-        private const string WelcomeText = "Hi, Im able to look for a room and book it on your name";
         private readonly GraphAuthenticationBotAccessors _stateAccessors;
         private readonly DialogSet _dialogs;
 
@@ -98,8 +99,26 @@ namespace Lobo
                     break;
                 case ActivityTypes.ConversationUpdate:
                     // Send a HeroCard as a welcome message when a new user joins the conversation.
-                    await OAuthHelpers.SendWelcomeMessageAsync(turnContext, cancellationToken: cancellationToken);
+                    await SendWelcomeMessageAsync(turnContext, cancellationToken);
+
                     break;
+            }
+        }
+
+        private static async Task SendWelcomeMessageAsync(ITurnContext turnContext, CancellationToken cancellationToken)
+        {
+            foreach (var member in turnContext.Activity.MembersAdded)
+            {
+                if (member.Id != turnContext.Activity.Recipient.Id)
+                {
+                    var reply = turnContext.Activity.CreateReply();
+                    string[] Sala = { "one", "two", "three" };  //lo puse yo
+                    reply.Text = WelcomeText;
+                    reply.Attachments = new List<Attachment> { WelcomeCard(member.Name).ToAttachment() }; // change with name later
+                    //reply.Attachments = new List<Attachment> { CreateHeroCard("BOG", Sala).ToAttachment() };
+                    //reply.Attachments = new List<Attachment> { CreateHeroCard(member.Id).ToAttachment() };
+                    await turnContext.SendActivityAsync(reply, cancellationToken);
+                }
             }
         }
 
@@ -109,7 +128,25 @@ namespace Lobo
         /// <param name="newUserName"> The name of the user.</param>
         /// <returns>A <see cref="HeroCard"/> the user can interact with.</returns>
 
-        
+        private static HeroCard WelcomeCard(string UserName)
+        {
+            var heroCard = new HeroCard($"Welcome {UserName}")
+            {
+                Images = new List<CardImage>
+                {
+                    new CardImage(
+                        "https://i0.wp.com/static1.wikia.nocookie.net/__cb20121001100335/adventuretimewithfinnandjake/images/5/56/Get_A_Room.png",
+                        "Get A Room"
+                       ),
+                },
+                Buttons = new List<CardAction>
+                {
+                    new CardAction(ActionTypes.ImBack, "Not Me", text: "Not Me", displayText: "Not Me", value: "Not Me"),
+                    new CardAction(ActionTypes.ImBack, "Continue", text: "Continue", displayText: "Continue", value: "Continue"),
+                },
+            };
+            return heroCard;
+        }
 
         /// <summary>
         /// Processes input and route to the appropriate step.
@@ -195,10 +232,6 @@ namespace Lobo
                     else if (command.StartsWith("continue"))
                     {
                         await OAuthHelpers.ContinueAsync(step.Context, tokenResponse);
-                    }
-                    else if (command.StartsWith("welcome"))
-                    {
-                        await OAuthHelpers.SendWelcomeCardMessageAsync(step.Context, cancellationToken);
                     }
 
                     await _stateAccessors.CommandState.DeleteAsync(step.Context, cancellationToken);

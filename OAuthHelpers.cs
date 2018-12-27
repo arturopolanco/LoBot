@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Threading;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
@@ -43,38 +42,8 @@ namespace Lobo
             await turnContext.SendActivityAsync(
                 $"I sent a message to '{recipient}' from your account.");
         }
-        private const string WelcomeText = "Hi, Im able to look for a room and book it on your name";
-        // Displays information about the user in the bot.
-        public static async Task SendWelcomeCardMessageAsync(ITurnContext turnContext, CancellationToken cancellationToken)
-        {
-            
-            var reply = turnContext.Activity.CreateReply();
-                    string[] Sala = { "one", "two", "three" };  //lo puse yo
-                    reply.Text = WelcomeText;
-                    reply.Attachments = new List<Attachment> { Cards.WelcomeCard("!").ToAttachment() }; // change with name later
-                    //reply.Attachments = new List<Attachment> { CreateHeroCard("BOG", Sala).ToAttachment() };
-                    //reply.Attachments = new List<Attachment> { CreateHeroCard(member.Id).ToAttachment() };
-                    await turnContext.SendActivityAsync(reply, cancellationToken);
-                
-            
-        }
-        public static async Task SendWelcomeMessageAsync(ITurnContext turnContext, CancellationToken cancellationToken)
-        {
 
-            foreach (var member in turnContext.Activity.MembersAdded)
-            {
-                if (member.Id != turnContext.Activity.Recipient.Id)
-                {
-                    var reply = turnContext.Activity.CreateReply();
-                    string[] Sala = { "one", "two", "three" };  //lo puse yo
-                    reply.Text = WelcomeText;
-                    reply.Attachments = new List<Attachment> { Cards.WelcomeCard(member.Name).ToAttachment() }; // change with name later
-                    //reply.Attachments = new List<Attachment> { CreateHeroCard("BOG", Sala).ToAttachment() };
-                    //reply.Attachments = new List<Attachment> { CreateHeroCard(member.Id).ToAttachment() };
-                    await turnContext.SendActivityAsync(reply, cancellationToken);
-                }
-            }
-        }
+        // Displays information about the user in the bot.
         public static async Task ListMeAsync(ITurnContext turnContext, TokenResponse tokenResponse)
         {
             if (turnContext == null)
