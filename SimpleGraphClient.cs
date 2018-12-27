@@ -78,6 +78,7 @@ namespace Lobo
         public async Task<Message[]> GetRecentMailAsync()
         {
             var graphClient = GetAuthenticatedClient();
+            graphClient.BaseUrl = "https://graph.microsoft.com/beta"; // new line
             var messages = await graphClient.Me.MailFolders.Inbox.Messages.Request().GetAsync();
             return messages.Take(5).ToArray();
         }
@@ -86,8 +87,30 @@ namespace Lobo
         public async Task<User> GetMeAsync()
         {
             var graphClient = GetAuthenticatedClient();
+            graphClient.BaseUrl = "https://graph.microsoft.com/beta"; // new line
             var me = await graphClient.Me.Request().GetAsync();
             return me;
+        }
+        public async Task<User> GetRoomList()
+        {
+            var graphClient = GetAuthenticatedClient();
+            graphClient.BaseUrl = "https://graph.microsoft.com/beta"; // new line
+            //graphClient.Me.AppendSegmentToRequestUrl("me.findRooms(roomlist='DIBMeetingRooms@devglobal.onmicrosoft.com')");
+            var url = graphClient.Me.AppendSegmentToRequestUrl("findRoomLists");
+            graphClient.
+
+            //graphClient.Me.Request().
+
+            var RoomListRequest =  graphClient.Me.Request();
+
+            //RoomListRequest.
+            
+            var RoomList = await RoomListRequest.GetAsync();
+            
+                //Request().GetAsync();
+
+             //   Me.Request().GetAsync();
+            return RoomList;
         }
         public async Task<MeetingTimeSuggestionsResult> FindRoomAsync(DateTime from, DateTime to, string meetingDuration, string meetingRoomDisplayName, string meetingRoomEmailAddress)
         {

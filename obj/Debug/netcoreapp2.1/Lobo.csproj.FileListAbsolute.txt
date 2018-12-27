@@ -1,0 +1,16 @@
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.1\BotConfiguration.bot
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.1\Lobo.deps.json
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.1\Lobo.runtimeconfig.json
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.1\Lobo.runtimeconfig.dev.json
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.1\Lobo.dll
+C:\Users\polancar\source\repos\LoBot\bin\Debug\netcoreapp2.1\Lobo.pdb
+C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.1\Lobo.csprojAssemblyReference.cache
+C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.1\Lobo.csproj.CoreCompileInputs.cache
+C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.1\Lobo.AssemblyInfoInputs.cache
+C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.1\Lobo.AssemblyInfo.cs
+C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.1\Lobo.dll
+C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.1\Lobo.pdb
+C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.1\Lobo.RazorAssemblyInfo.cache
+C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.1\Lobo.RazorAssemblyInfo.cs
+C:\Users\polancar\source\repos\LoBot\obj\Debug\netcoreapp2.1\Lobo.RazorTargetAssemblyInfo.cache
